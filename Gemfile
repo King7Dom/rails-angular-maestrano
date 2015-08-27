@@ -9,6 +9,11 @@ gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
 # User Coffeescript
 gem 'coffee-rails'
+# Adds your HTML templates into Angular's $templateCache using Rails asset pipeline
+gem 'angular-rails-templates'
+# angular-rails-templates gem error with sprockets 3.0.0
+# details: http://www.ademartutor.com/angular-rails-templates-gem-error-with-sprockets-3-0-o/
+gem 'sprockets', '2.12.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
