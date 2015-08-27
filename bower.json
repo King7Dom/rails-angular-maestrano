@@ -1,0 +1,15 @@
+{
+  "name": "rails-angular-impact",
+  "version": "0.0.0",
+  "authors": [
+    "Dominic Cheung <dom.with.a.inic@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
