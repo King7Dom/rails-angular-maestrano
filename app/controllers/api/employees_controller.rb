@@ -1,7 +1,9 @@
+require 'impactAPI_service'
+
 class Api::EmployeesController < ApplicationController
 
   def location
-    puts 'employees#location'
-    render 'layouts/application'
+    response = ImpactAPIService.employee_list
+    render json: response
   end
 end
