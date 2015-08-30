@@ -3,6 +3,13 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+
+
+  namespace :api do
+    get 'employeesloc', to: 'employees#location'
+    get 'salesflow', to: 'sales#sales_flow'
+  end
+
   root 'application#hello_world'
 
   # Example of regular route:
