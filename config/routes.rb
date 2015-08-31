@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     get 'employeesloc', to: 'employees#location'
+    get 'employeesdetail', to: 'employees#detail'
     get 'salesflow', to: 'sales#sales_flow'
   end
 
