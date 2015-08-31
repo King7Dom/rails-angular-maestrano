@@ -20,7 +20,7 @@ module ImpactAPIService
     end
 
     def invoice_list
-      url = "#{PROTOCOL}://#{BASE_URL}?engine=hr/employee_details&metadata[organization_ids][]=org-fbte&metadata[entity]=customers|suppliers"
+      url = "#{PROTOCOL}://#{BASE_URL}?engine=invoices/list&metadata[organization_ids][]=org-fbte&metadata[entity]=customers|suppliers"
       return JSON.parse request_impact_api url
     end
 
