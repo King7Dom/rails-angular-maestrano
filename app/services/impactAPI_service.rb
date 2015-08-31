@@ -1,4 +1,5 @@
 require 'rest-client'
+require 'json'
 
 module ImpactAPIService
   class << self
@@ -10,17 +11,17 @@ module ImpactAPIService
 
     def employee_list
       url = "#{PROTOCOL}://#{BASE_URL}?engine=hr/employees_list&metadata[organization_ids][]=org-fbte"
-      return request_impact_api url
+      return JSON.parse request_impact_api url
     end
 
     def employee_detail
       url = "#{PROTOCOL}://#{BASE_URL}?engine=hr/employee_details&metadata[organization_ids][]=org-fbte"
-      return request_impact_api url
+      return JSON.parse request_impact_api url
     end
 
     def invoice_list
       url = "#{PROTOCOL}://#{BASE_URL}?engine=hr/employee_details&metadata[organization_ids][]=org-fbte&metadata[entity]=customers|suppliers"
-      return request_impact_api url
+      return JSON.parse request_impact_api url
     end
 
     private
