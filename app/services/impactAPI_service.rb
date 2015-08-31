@@ -34,4 +34,18 @@ module ImpactAPIService
     )
     return response
   end
+
+  def self.invoice_list
+    url = "#{PROTOCOL}://#{BASE_URL}?engine=hr/employee_details&metadata[organization_ids][]=org-fbte&metadata[entity]=customers|suppliers"
+    puts "Requesting url: #{url}"
+    response = RestClient::Request.execute(
+      url: url,
+      user: USERNAME,
+      password: PASSWORD,
+      method: :get,
+      accept: :json,
+      verify_ssl: false
+    )
+    return response
+  end
 end
