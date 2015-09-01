@@ -7,8 +7,10 @@ Rails.application.routes.draw do
 
   namespace :api do
     get 'employeesloc', to: 'employees#location'
-    get 'employeesdetail', to: 'employees#detail'
     get 'salesflow', to: 'sales#sales_flow'
+    get 'impact/employeelist', to: 'impact_sample#employee_list'
+    get 'impact/employeedetail', to: 'impact_sample#employee_detail'
+    get 'impact/invoicelist', to: 'impact_sample#invoice_list'
   end
 
   root 'application#hello_world'

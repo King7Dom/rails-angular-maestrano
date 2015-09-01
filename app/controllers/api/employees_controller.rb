@@ -16,9 +16,5 @@ class Api::EmployeesController < ApplicationController
 
     render json: work_locations
   end
-
-  def detail
-    response = ImpactAPIService.employee_detail
-    render json: response
-  end
+  
 end
