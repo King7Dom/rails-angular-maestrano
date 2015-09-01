@@ -6,17 +6,18 @@ class Api::SalesController < ApplicationController
     response = ImpactAPIService.invoice_list
     sales_channel = Hash.new {}
     for invoice in response['content']['entities']
-      country = invoice['address']['c']
       region = invoice['address']['r']
       if region == '-'
         region = invoice['address']['l']
       end
+      country = invoice['address']['c']
       if country == '-'
         if region == '-'
           country = 'unknown'
           region = 'unknown'
         else
           country = region
+          region = 'unknown'
         end
       end
       total = invoice['total_due'] || invoice['total_paid'] || invoice['total_invoiced']
