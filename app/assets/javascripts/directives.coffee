@@ -25,10 +25,7 @@ angular.module 'mtImpact.directives', [
         series: []
 
       for key, value of response.data
-        console.debug key
-        console.debug value
         data.labels.push key
         data.series.push [value]
 
-      console.debug data
       $scope.data = data
