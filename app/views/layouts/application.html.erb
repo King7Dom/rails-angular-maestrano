@@ -7,19 +7,20 @@
 </head>
 <body ng-app="mtImpact">
 
-  <md-content layout="column" tabIndex="-1" role="main" flex>
+  <div layout="column" tabIndex="-1" role="main" flex>
     <md-toolbar>
       <div class="md-toolbar-tools">
         <h2>
           <hello-world></hello-world>
         </h2>
-        <span flex></span>
       </div>
     </md-toolbar>
-    <md-content>
-      <employees-location></employees-location>
-    </md-content>
-  </md-content>
+
+    <div layout-padding>
+      <employees-location />
+    </div>
+
+  </div>
 
   <%= javascript_include_tag 'application' %>
 </body>
