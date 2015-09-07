@@ -29,3 +29,13 @@ angular.module 'mtImpact.directives', [
         data.series.push [value]
 
       $scope.data = data
+
+.directive 'salesFlow', ->
+  scope: {}
+  restrict: 'E'
+  templateUrl: 'salesFlow.html'
+  controller: ($scope, $http) ->
+    $http.get '/api/salesflow',
+      responseType: 'json'
+    .then (response) ->
+      $scope.data = response.data
