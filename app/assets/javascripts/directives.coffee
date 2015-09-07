@@ -2,6 +2,7 @@
 
 angular.module 'mtImpact.directives', [
   'templates'
+  'angular-chartist'
 ]
 .directive 'helloWorld', ->
   scope: {}

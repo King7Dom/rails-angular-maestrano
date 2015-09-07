@@ -2,14 +2,25 @@
 <html>
 <head>
   <title>RailsAngularImpact</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
+  <%= stylesheet_link_tag    'application', :media => "all" %>
   <%= csrf_meta_tags %>
 </head>
 <body ng-app="mtImpact">
 
-  <hello-world></hello-world>
-  <employees-location></employees-location>
+  <md-content layout="column" tabIndex="-1" role="main" flex>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>
+          <hello-world></hello-world>
+        </h2>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+    <md-content>
+      <employees-location></employees-location>
+    </md-content>
+  </md-content>
 
+  <%= javascript_include_tag 'application' %>
 </body>
 </html>
