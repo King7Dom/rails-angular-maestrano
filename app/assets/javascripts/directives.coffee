@@ -19,5 +19,16 @@ angular.module 'mtImpact.directives', [
     $http.get '/api/employeesloc',
       responseType: 'json'
     .then (response) ->
-      console.debug response
-      $scope.data = response.data
+      # Parse the response into chartist data format
+      data =
+        labels: []
+        series: []
+
+      for key, value of response.data
+        console.debug key
+        console.debug value
+        data.labels.push key
+        data.series.push [value]
+
+      console.debug data
+      $scope.data = data
