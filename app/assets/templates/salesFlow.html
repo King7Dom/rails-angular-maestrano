@@ -4,7 +4,11 @@
       <h2>Sales flow</h2>
     </div>
   </md-toolbar>
-  <md-content layout-padding>
-    {{ data }}
+  <md-content style="height: 500px" layout-padding>
+    <chartist
+      class="ct-chart"
+      chartist-data="data"
+      chartist-chart-type="Pie"
+      chartist-chart-options="option"/>
   </md-content>
 </div>

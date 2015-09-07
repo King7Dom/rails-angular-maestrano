@@ -38,4 +38,17 @@ angular.module 'mtImpact.directives', [
     $http.get '/api/salesflow',
       responseType: 'json'
     .then (response) ->
-      $scope.data = response.data
+      data =
+        labels: []
+        series: []
+
+      for key, value of response.data
+        data.labels.push key
+        data.series.push value['total']
+
+      $scope.data = data
+      $scope.option =
+        chartPadding: 30
+        labelOffset: 120
+        labelDirection: 'explode'
+        labelInterpolationFnc: (value) -> value
