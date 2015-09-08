@@ -38,17 +38,36 @@ angular.module 'mtImpact.directives', [
     $http.get '/api/salesflow',
       responseType: 'json'
     .then (response) ->
-      data =
+      console.debug response.data
+      countries =
         labels: []
         series: []
+      regions = []
 
-      for key, value of response.data
-        data.labels.push key
-        data.series.push value['total']
+      for country, region of response.data
+        countries.labels.push country
+        currentRegion =
+          country: country
+          labels: []
+          series: []
+        for key, value of region
+          if key is 'total'
+            countries.series.push value
+          else
+            currentRegion.labels.push key
+            currentRegion.series.push value
+        unless currentRegion.labels.length > 0 and currentRegion.series.length > 0
+          currentRegion.labels.push country
+          currentRegion.series.push region['total']
+        regions.push currentRegion
 
-      $scope.data = data
-      $scope.option =
+      $scope.countries = countries
+      $scope.countryOption =
         chartPadding: 30
         labelOffset: 120
         labelDirection: 'explode'
         labelInterpolationFnc: (value) -> value
+
+      $scope.regions = regions
+      $scope.regionOption =
+        distributeSeries: true

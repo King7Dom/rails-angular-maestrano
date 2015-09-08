@@ -4,11 +4,26 @@
       <h2>Sales flow</h2>
     </div>
   </md-toolbar>
-  <md-content style="height: 500px" layout-padding>
-    <chartist
-      class="ct-chart"
-      chartist-data="data"
-      chartist-chart-type="Pie"
-      chartist-chart-options="option"/>
-  </md-content>
+  <div layout-padding>
+    <div style="height: 500px">
+      <chartist
+        class="ct-chart"
+        chartist-data="countries"
+        chartist-chart-type="Pie"
+        chartist-chart-options="countryOption"/>
+    </div>
+    <div>
+      <h2>Each sales channel</h2>
+      <div layout="column" layout-gt-sm="row" layout-wrap layout-padding>
+        <div ng-repeat="region in regions" flex="50">
+          <h3>{{ region.country }}</h3>
+          <chartist
+            class="ct-chart"
+            chartist-data="region"
+            chartist-chart-type="Bar"
+            chartist-chart-options="regionOption" />
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
